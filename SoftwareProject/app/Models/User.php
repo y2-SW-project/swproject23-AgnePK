@@ -49,4 +49,12 @@ class User extends Authenticatable
 
     //user has one role (hasRole role)
     //has many orders (hasMany order)
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'user_role');
+    }
+    public function jewellery()
+    {
+        return $this->belongToMany('App\Models\Jewellery', 'saved_item');
+    }
 }

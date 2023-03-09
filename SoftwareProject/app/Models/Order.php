@@ -15,4 +15,12 @@ class Order extends Model
     ];
     //can have many jewellery (hasMany jewellery)
     //one order can belong to one user(belongs to user)
+    public function jewellery()
+    {
+        return $this->belongToMany('App\Models\Jewellery', 'Order');
+    }
+    public function User()
+    {
+        return $this->belongTo(User::class);
+    }
 }
