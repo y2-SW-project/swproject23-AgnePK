@@ -15,4 +15,6 @@ class Jewellery extends Model
         'category',
         'material',
     ];
+    //can be saved by many users (saved_items) (belongs to Saved_items)
+    //can be in many orders (order) (belongs to order)
 }

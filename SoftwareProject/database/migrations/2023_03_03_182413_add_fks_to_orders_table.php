@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('order', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table) {
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('jewellery_id')->unsigned();
 
@@ -26,10 +26,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('order', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropForeign(['users_id']);
             $table->dropForeign(['jewellery_id']);
-            $table->dropColumn('user_id');
+            $table->dropColumn('users_id');
             $table->dropColumn('jewellery_id');
         });
     }

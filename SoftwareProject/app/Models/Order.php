@@ -9,9 +9,10 @@ class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'total_price',
         'date_ordered',
         // 'user_id',
         // 'jewellery_id'
     ];
+    //can have many jewellery (hasMany jewellery)
+    //one order can belong to one user(belongs to user)
 }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->text('description');
-            $table->string('category');
-            $table->string('material');
+            $table->enum('category', ['earrings','ring','necklace','bracelets']);
+            $table->enum('material', ['sterling silver','gold','rosegold','white gold','bronze']);
             $table->timestamps();
         });
     }

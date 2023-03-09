@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'fName',
         'lName',
+        'address',
         'phoneNo',
         'email',
         'password',
@@ -45,4 +46,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //user has one role (hasRole role)
+    //has many orders (hasMany order)
 }

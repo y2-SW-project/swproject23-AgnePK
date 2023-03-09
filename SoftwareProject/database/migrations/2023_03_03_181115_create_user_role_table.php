@@ -19,7 +19,7 @@ return new class extends Migration
 
             // these are foreign keys in the database
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('role_id')->references('id')->on('role')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 
