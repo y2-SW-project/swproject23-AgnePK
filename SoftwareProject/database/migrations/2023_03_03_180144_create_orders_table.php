@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->date('date_ordered');
+            $table->string('address');
+            $table->decimal('total_price');
             $table->timestamps();
         });
     }
