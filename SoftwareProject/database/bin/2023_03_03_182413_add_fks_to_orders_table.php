@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->bigInteger('user_id')->unsigned();
 
             // these are foreign keys in the database - order table
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
         });
     }
@@ -25,8 +25,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign(['users_id']);
-            $table->dropColumn('users_id');
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
         });
+        Schema::dropIfExists('orders');
     }
 };
