@@ -1,17 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Order;
+use App\Models\User;
+use App\Models\Jewellery;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $user->authorizeRoles('admin');
+
+        $orders = Order::where('user_id', '=', $user->id)->get();
+        return view('orders.show')->with('orders', $orders);
+        /*
+        I want to be able to be able to go into the logged in users' 
+        orders. I dont know how to make the connections and where to include the
+        orders. Do i need a a different page for listing order items?
+         */
     }
 
     /**
@@ -35,7 +48,12 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $user = Auth::user();
+        $user->authorizeRoles('admin');
+
+        $user = Order::where('user_id', '=', $user->id)->get();
+        // $jewellery = Order::where('jewellery_id', '=', $jewellery->id)->get();
+        return view('orders.show')->with('order', $order)->with('jewellery', $jewellery)->with('user', $user);
     }
 
     /**

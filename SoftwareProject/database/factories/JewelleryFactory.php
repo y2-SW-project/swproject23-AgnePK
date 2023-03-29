@@ -16,14 +16,15 @@ class JewelleryFactory extends Factory
      */
     public function definition()
     {
+        $randNum = rand(1, 50);
         return [
             'name' => fake()->words($nb = 3, $asText = true),
-            'img' => "necklace1",
+            'img' => "{$randNum}.jpg",
             'price' => fake()->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 100),
             'description' => fake()->paragraph($nbSentences = 3, $variableNbSentences = true),
             'category' => fake()->randomElement(["earrings", "ring", "necklace", "bracelets"]),
             'material' => fake()->randomElement(["sterling silver", "gold", "rosegold", "white gold", "bronze"]),
-            'order_id' => "1"
+            // 'order_id' => "1"
         ];
     }
 }

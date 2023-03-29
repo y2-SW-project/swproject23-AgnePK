@@ -21,8 +21,8 @@ return new class extends Migration
             $table->text('description');
             $table->enum('category', ['earrings', 'ring', 'necklace', 'bracelets']);
             $table->enum('material', ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze']);
-            $table->bigInteger('order_id')->unsigned();
-            $table->foreign('order_id')->references('id')->on('orders')->onUpdate('cascade')->onDelete('cascade');
+            // $table->bigInteger('order_id')->unsigned()->nullable();
+            // $table->foreign('order_id')->references('id')->on('orders')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -34,10 +34,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
-        });
+        // Schema::table('orders', function (Blueprint $table) {
+            // $table->dropForeign(['user_id']);
+            // $table->dropColumn('user_id');
+        // });
         Schema::dropIfExists('jewellery');
     }
 };

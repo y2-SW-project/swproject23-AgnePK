@@ -16,11 +16,14 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
+        $randNum = rand(1, 10);
         return [
             'date_ordered' => fake()->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             'address' => fake()->streetAddress(),
             'total_price' => fake()->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 100),
             'user_id'=> '1',
+            // 'jewellery_id'=> "{$randNum}",
+            'jewellery_id'=> '1',
         ];
     }
 }

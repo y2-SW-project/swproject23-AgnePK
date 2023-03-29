@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Jewellery;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class JewelleryController extends Controller
     public function index()
     {
         // $jewellery = Jewellery::where('user_id', Auth::id())->get();
-        $jewellery = Jewellery::latest('updated_at')->get();
+        $jewellery = Jewellery::latest('updated_at')->paginate(6);
         // dd($jewellery);
         return view('jewellery.index')->with('jewellery', $jewellery);
     }
@@ -22,7 +23,9 @@ class JewelleryController extends Controller
      */
     public function create()
     {
-        return view('jewellery.create');
+        $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
+        $materials = ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze'];
+        return view('jewellery.create')->with('categories', $categories)->with('materials', $materials);
     }
 
     /**
@@ -42,7 +45,7 @@ class JewelleryController extends Controller
         ]);
         $img = $request->file('img');
         $extention = $img->getClientOriginalExtension();
-        $filename = '_' . $request->input('name') . '.' . $extention;
+        $filename = $request->input('name') . '.' . $extention;
         $path = $img->storeAs('public/images', $filename);
 
 
@@ -64,6 +67,8 @@ class JewelleryController extends Controller
      */
     public function show(Jewellery $jewellery)
     {
+        // $order = Jewellery::with('orders')->get();
+        // dd($jewellery);
         return view('jewellery.show')->with('jewellery', $jewellery);
     }
 
@@ -72,7 +77,9 @@ class JewelleryController extends Controller
      */
     public function edit(Jewellery $jewellery)
     {
-        return view('jewellery.edit');
+        $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
+        $materials = ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze'];
+        return view('jewellery.edit')->with('jewellery', $jewellery)->with('categories', $categories)->with('materials', $materials);
     }
 
     /**
@@ -92,10 +99,8 @@ class JewelleryController extends Controller
         ]);
         $img = $request->file('img');
         $extention = $img->getClientOriginalExtension();
-        $filename = '_' . $request->input('name') . '.' . $extention;
+        $filename = $request->input('name') . '.' . $extention;
         $path = $img->storeAs('public/images', $filename);
-
-
 
         $jewellery->update([
             'img' => $filename,
@@ -106,14 +111,65 @@ class JewelleryController extends Controller
             'material' => $request->material,
         ]);
 
-        return to_route('jewellery.show');
+        return to_route('jewellery.show', $jewellery);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Jewellery $jewellery)
     {
-        //
+        $jewellery->delete();
+
+        return to_route('jewellery.index', $jewellery);
+    }
+    /**
+     * Adding jewellery to cart.
+     */
+
+     
+    public function jewelleryCart()
+    {
+        return view('cart');
+    }
+    public function addJewellerytoCart($id)
+    {
+        $jewellery = Jewellery::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $jewellery->name,
+                "quantity" => 1,
+                "price" => $jewellery->price,
+                "description" => $jewellery->description,
+                // "img" => $jewellery->img
+            ];
+        }
+        session()->put('cart', $cart);
+        return redirect()->back();
+    }
+    
+    public function updateCart(Request $request)
+    {
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'jewellery added to cart.');
+        }
+    }
+  
+    public function deleteProduct(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'jewellery successfully deleted.');
+        }
     }
 }

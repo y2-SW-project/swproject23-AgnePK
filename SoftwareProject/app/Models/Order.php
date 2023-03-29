@@ -20,6 +20,6 @@ class Order extends Model
     }
     public function User()
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }
