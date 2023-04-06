@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Jewellery;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +26,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $home = 'home';
+
+        if($user->hasRole('admin')){
+            $home = 'admin.jewellery.index';
+        }
+        else if ($user->hasRole('user')){
+            $home = 'users.jewellery.index';
+        }
+        return redirect()->route($home);
+    }
+    public function show(Jewellery $jewellery)
+    {
+        return view('welcome')->with('jewellery', $jewellery);
     }
 }

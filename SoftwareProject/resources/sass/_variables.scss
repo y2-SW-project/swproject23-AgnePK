@@ -1,7 +1,38 @@
+//variables
+$mainGreen: #c5d5cb;
+$darkGreen: #9fa8a3;
+$beige: #e3e0cf;
+$bgColour: #fcfcfa;
+
+p{
+    font-family:'Josefin Sans', sans-serif;
+    margin-bottom: 0rem;
+}
+
+//Card
+.card{
+    margin: 1rem;
+}
+.card-body{
+    a{
+        text-decoration: none;
+        button{
+            background: $mainGreen;
+        }
+    }
+}
 // Body
-$body-bg: #f8fafc;
+$body-bg: $bgColour;
+
+//footer
+footer{
+    background-color:$darkGreen ;
+    a,a:hover{
+        color: white;
+    }
+}
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Cardo';
 $font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$line-height-base: 1.3;

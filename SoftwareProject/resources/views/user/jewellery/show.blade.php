@@ -17,9 +17,9 @@
                     <strong>Updated at: </strong> {{ $jewellery->updated_at->diffForHumans() }}
                 </p>
                 {{-- The button below takes you to the edit page.  --}}
-                <a href="{{ route('jewellery.edit', $jewellery) }}" class="btn-link ml-auto">Edit jewellery</a>
+                <a href="{{ route('user.jewellery.edit', $jewellery) }}" class="btn-link ml-auto">Edit jewellery</a>
                 {{-- It goes to the jewelleryController and calls all the functions. --}}
-                <form action="{{ route('jewellery.destroy', $jewellery) }}" method="post">
+                <form action="{{ route('user.jewellery.destroy', $jewellery) }}" method="post">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger ml-4"
@@ -43,6 +43,8 @@
                     <p class="mt-3">Find us at: {{ $jewellery->material }}</p>
                     <p class="mt-3 font-serif text-2xl">€{{ $jewellery->price }}</p>
                 </div>
+                <p class="btn-holder"><a href="{{ route('user.addjewellery.to.cart', $jewellery->id) }}" class="btn btn-outline-danger">Add to cart</a> </p>
+
 
             </div>
 

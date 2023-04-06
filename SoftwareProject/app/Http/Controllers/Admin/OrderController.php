@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Jewellery;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -19,7 +20,7 @@ class OrderController extends Controller
         $user->authorizeRoles('admin');
 
         $orders = Order::where('user_id', '=', $user->id)->get();
-        return view('orders.show')->with('orders', $orders);
+        return view('admin.orders.show')->with('orders', $orders);
         /*
         I want to be able to be able to go into the logged in users' 
         orders. I dont know how to make the connections and where to include the
@@ -53,7 +54,7 @@ class OrderController extends Controller
 
         $user = Order::where('user_id', '=', $user->id)->get();
         // $jewellery = Order::where('jewellery_id', '=', $jewellery->id)->get();
-        return view('orders.show')->with('order', $order)->with('jewellery', $jewellery)->with('user', $user);
+        return view('admin.orders.show')->with('order', $order)->with('user', $user);
     }
 
     /**
