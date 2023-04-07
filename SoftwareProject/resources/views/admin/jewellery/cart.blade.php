@@ -26,7 +26,7 @@
                         </td>
                         <td data-th="Price">${{ $details['price'] }}</td>
 
-                        <td data-th="Subtotal" class="text-center"></td>
+                        {{-- <td data-th="Subtotal" class="text-center"></td> --}}
                         <td class="actions">
                             <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa fa-trash-o"></i>Delete</a>
                         </td>

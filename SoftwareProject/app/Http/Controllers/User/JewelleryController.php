@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Jewellery;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,8 +15,10 @@ class JewelleryController extends Controller
      */
     public function index()
     {
+        // $user = Auth::user();
+        // $user->authorizeRoles('user');
         // $jewellery = Jewellery::where('user_id', Auth::id())->get();
-        $jewellery = Jewellery::latest('updated_at')->paginate(10);
+        $jewellery = Jewellery::latest('updated_at')->paginate(12);
         // dd($jewellery);
         // $categories = Jewellery::where('category', '=', $jewellery->category)->get();
         // $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
@@ -80,7 +83,9 @@ class JewelleryController extends Controller
     {
         // $order = Jewellery::with('orders')->get();
         // dd($jewellery);
-        return view('user.jewellery.show')->with('jewellery', $jewellery);
+        $allJewellery = Jewellery::latest('updated_at')->paginate(5);
+
+        return view('user.jewellery.show')->with('jewellery', $jewellery)->with('allJewellery', $allJewellery);
     }
 
     /**
@@ -88,6 +93,10 @@ class JewelleryController extends Controller
      */
     public function edit(Jewellery $jewellery)
     {
+        // $user = Auth::user();
+        // $user->authorizeRoles('user');
+
+        // $user = Jewellery::where('user_id', Auth::id())->get();
         $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
         $materials = ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze'];
         return view('user.jewellery.edit')->with('jewellery', $jewellery)->with('categories', $categories)->with('materials', $materials);
@@ -144,7 +153,6 @@ class JewelleryController extends Controller
         return view('user.jewellery.cart');
     }
     public function addJewellerytoCart($id)
-    // i tried to change the $id to Jewellery $jewellery- didnt work
     {
         $jewellery = Jewellery::findOrFail($id);
         $cart = session()->get('cart', []);

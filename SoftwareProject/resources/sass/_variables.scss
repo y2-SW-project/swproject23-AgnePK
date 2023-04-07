@@ -4,6 +4,9 @@ $darkGreen: #9fa8a3;
 $beige: #e3e0cf;
 $bgColour: #fcfcfa;
 
+nav{
+    background-color: $bgColour;
+}
 p{
     font-family:'Josefin Sans', sans-serif;
     margin-bottom: 0rem;
@@ -24,6 +27,12 @@ p{
 // Body
 $body-bg: $bgColour;
 
+
+.similarItems{
+    // width: 100%;
+    
+    background-color: $beige;
+}
 //footer
 footer{
     background-color:$darkGreen ;

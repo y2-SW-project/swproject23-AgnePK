@@ -7,48 +7,121 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex">
-                <p class="opacity-70">
-                    <strong>Created: </strong> {{ $jewellery->created_at->diffForHumans() }}
-                </p>
-                <p class="opacity-70 ml-8">
-                    <strong>Updated at: </strong> {{ $jewellery->updated_at->diffForHumans() }}
-                </p>
-                {{-- The button below takes you to the edit page.  --}}
-                <a href="{{ route('user.jewellery.edit', $jewellery) }}" class="btn-link ml-auto">Edit jewellery</a>
-                {{-- It goes to the jewelleryController and calls all the functions. --}}
-                <form action="{{ route('user.jewellery.destroy', $jewellery) }}" method="post">
-                    @method('delete')
-                    @csrf
-                    <button type="submit" class="btn btn-danger ml-4"
-                        onclick="return confirm('Are you sure you wish to delete this jewellery?')">Delete
-                        jewellery</button>
+    <div class="col-5 ps-5">
+        <img class="border border-grey shadow-lg" src="{{ asset('storage/images/' . $jewellery->img) }}" width="450">
+    </div>
+
+    <div class="col-7 bg-transparent">
+        <div class="pt-3">
+            <h2 class="fs-1">
+                {{ $jewellery->name }}
+            </h2>
+            <hr>
+
+        </div>
+
+        <div class="fs-5 ml-6">
+            <p class="mt-3 fs-3 text-secondary">€{{ $jewellery->price }}</p>
+            <p class="btn-holder py-4"><a
+                    href="{{ route('user.addjewellery.to.cart', $jewellery->id) }}"class="btn btn-dark rounded-0 px-5 fs-3">Add
+                    to cart</a> </p>
+            <p class="mt-3"><strong>Category:</strong> {{ $jewellery->category }}</p>
+            <p class="mt-3"><strong>Material:</strong> {{ $jewellery->material }}</p>
+            <p class="mt-4 fs-4">{{ $jewellery->description }}</p>
+        </div>
+
+    </div>
+
+    <div class="col-12 d-flex mt-4">
+        {{-- The button below takes you to the edit page.  --}}
+        <p class="btn-holder ms-auto pe-3"><a href="{{ route('user.jewellery.edit', $jewellery) }}"
+                class="btn btn-secondary">Edit jewellery</a></p>
+        {{-- It goes to the jewelleryController and calls all the functions. --}}
+        <form action="{{ route('user.jewellery.destroy', $jewellery) }}" method="post">
+            @method('delete')
+            @csrf
+            <button type="submit" class="btn btn-danger"
+                onclick="return confirm('Are you sure you wish to delete this jewellery?')">Delete
+                jewellery
+            </button>
+    </div>
+
+    <div class="row pt-5 px-0">
+        <div class="similarItems col-12 pt-3">
+            <p class="lead ps-4 fs-3 fw-bold mb-0">Similar items you might like</p>
+            <div class="col d-flex ">
+                @foreach ($allJewellery as $piece)
+                    <div class="card rounded-0 border-0 bg-transparent" style="width: 17rem";>
+                        <a href="{{ route('user.jewellery.show', $piece) }}"><img
+                                src="{{ asset('storage/images/' . $piece->img) }}"
+                                class="card-img-top rounded-0 border border-dark" alt="..."></a>
+                        <div class="card-body px-0 pt-1">
+                            <h3 class="fs-4">
+                                <a class="link-dark"
+                                    href="{{ route('user.jewellery.show', $piece) }}">{{ $piece->name }}</a>
+                            </h3>
+                            <p class="card-text fs-5 mt-2">€{{ $piece->price }}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-
-            {{-- In this div i just show all the info from my DB. --}}
-            <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg flex">
-                <div class="">
-                    <h2 class="font-bold text-4xl">
-                        {{ $jewellery->name }}
-                    </h2>
-                    <img class="border-b border-gray-400 shadow-lg sm:rounded-lg mt-5"
-                        src="{{ asset('storage/images/' . $jewellery->img) }}" width="350">
+        </div>
+        <div class="col-12 mt-5">
+            <div class="d-flex justify-content-between mb-3">
+                <div>
+                    <h4 class="fs-2 ">Reviews for this seller</h4>
+                    <p>3 reviews</p>
                 </div>
-
-                <div class="ml-6">
-                    <p class="mt-3 whitespace-">{{ $jewellery->name }}</p>
-                    <p class="mt-3">Find us at: {{ $jewellery->category }}</p>
-                    <p class="mt-3">Find us at: {{ $jewellery->material }}</p>
-                    <p class="mt-3 font-serif text-2xl">€{{ $jewellery->price }}</p>
+                <div class="fs-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
                 </div>
-                <p class="btn-holder"><a href="{{ route('user.addjewellery.to.cart', $jewellery->id) }}" class="btn btn-outline-danger">Add to cart</a> </p>
-
-
             </div>
-
-
+            <div class="d-flex justify-content-evenly">
+                <div class="text-center px-4" style="width: 25rem;">
+                    <img src="https://picsum.photos/70?random=1" class="rounded-circle" alt="Profile image"><br>
+                    <span>Joseph O'Donelly</span>
+                    <div class="my-2">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="fst-italic text-wrap">"Had an awesome experience! I can see why all the reviews are 5-star.
+                        Great selection, wonderful service. Customer ervice was attentive and really helped with options
+                        within my budget."</p>
+                </div>
+                <div class="text-center px-4 mb-2" style="width: 25rem;">
+                    <img src="https://picsum.photos/70?random=3" class="rounded-circle" alt="Profile image"><br>
+                    <span>Joseph O'Donelly</span>
+                    <div class="my-2">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p class="fst-italic text-wrap">" I had the greatest experience with a custom ring design here! If you
+                        need custom work done, this is your spot!!! 100% recommend!"</p>
+                </div>
+                <div class="text-center px-4" style="width: 25rem;">
+                    <img src="https://picsum.photos/70?random=2" class="rounded-circle" alt="Profile image"><br>
+                    <span>Joseph O'Donelly</span>
+                    <div class="my-2">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
+                    <p class="fst-italic text-wrap">"I had a nice experience visiting! They have a great selection of
+                        watches and it's a very appealing atmosphere! They helped me out and was friendly and helpful!"</p>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

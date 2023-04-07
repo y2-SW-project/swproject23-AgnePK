@@ -20,7 +20,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -35,11 +35,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search"
+                            <form class="d-flex " role="search">
+                                <input class="form-control me-2 text-center" type="search" placeholder="Search"
                                     aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit"><i
-                                        class="bi bi-search-heart">Go</i></button>
+                                <button class="btn btn-light" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
                             </form>
                         </li>
 
@@ -47,19 +48,19 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-
+                        <li class="nav-item me-2">
+                            <a href="{{ route('user.jewellery.create') }}" class="btn btn-light"><i class="bi bi-upload"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders') }}">Orders</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/saved') }}">Saved</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.shopping.cart') }}">Cart</a>
-                        </li>
-                        <li class="nav-item me-2">
-                            <a href="{{ route('admin.jewellery.create') }}" class="btn btn-light">+ upload </a>
-                        </li>
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -98,9 +99,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class=" container">
-                <div class="row">
+        <main class="pb-4 pt-2">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
                     @yield('content')
                 </div>
             </div>
@@ -145,7 +146,7 @@
                                         <li><a href="#">New York</a></li>
                                 </div>
                                 <div class="col-lg-6 ">
-                                    <img src="storage/images/LOGO.png" class="img-fluid w-100 rounded-5"
+                                    <img src="{{ asset('storage/images/LOGO.png') }}" class="img-fluid w-100 rounded-5"
                                         alt="..." />
                                 </div>
                                 </ul>

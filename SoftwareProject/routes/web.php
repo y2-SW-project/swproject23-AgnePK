@@ -46,10 +46,10 @@ Route::get('/admin/jewellery/{id}/add', [AdminJewelleryController::class, 'addJe
 Route::patch('/admin/update-shopping-cart', [AdminJewelleryController::class, 'updateCart'])->name('admin.update.sopping.cart');
 Route::delete('/admin/delete-cart-product', [AdminJewelleryController::class, 'deleteProduct'])->name('admin.delete.cart.product');
 // //shopping cart
-// Route::get('/shopping-cart', [JewelleryController::class, 'jewelleryCart'])->name('shopping.cart');
-// Route::get('/jewellery/{id}', [JewelleryController::class, 'addJewellerytoCart'])->name('addjewellery.to.cart');
-// Route::patch('/update-shopping-cart', [JewelleryController::class, 'updateCart'])->name('update.sopping.cart');
-// Route::delete('/delete-cart-product', [JewelleryController::class, 'deleteProduct'])->name('delete.cart.product');
+Route::get('/user/shopping-cart', [UserJewelleryController::class, 'jewelleryCart'])->name('user.shopping.cart');
+Route::get('/user/jewellery/{id}/add', [UserJewelleryController::class, 'addJewellerytoCart'])->name('user.addjewellery.to.cart');
+Route::patch('/user/update-shopping-cart', [UserJewelleryController::class, 'updateCart'])->name('user.update.sopping.cart');
+Route::delete('/user/delete-cart-product', [UserJewelleryController::class, 'deleteProduct'])->name('user.delete.cart.product');
 
 
 require __DIR__.'/auth.php';

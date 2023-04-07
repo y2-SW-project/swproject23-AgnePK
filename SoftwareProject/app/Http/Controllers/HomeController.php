@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Jewellery;
 
 use Illuminate\Http\Request;
@@ -29,11 +30,10 @@ class HomeController extends Controller
         $user = Auth::user();
         $home = 'home';
 
-        if($user->hasRole('admin')){
+        if ($user->hasRole('admin')) {
             $home = 'admin.jewellery.index';
-        }
-        else if ($user->hasRole('user')){
-            $home = 'users.jewellery.index';
+        } else if ($user->hasRole('user')) {
+            $home = 'user.jewellery.index';
         }
         return redirect()->route($home);
     }
