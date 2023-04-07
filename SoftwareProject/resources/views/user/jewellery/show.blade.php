@@ -68,7 +68,7 @@
         </div>
         <div class="col-12 mt-5">
             <div class="d-flex justify-content-between mb-3">
-                <div>
+                <div class="ms-3">
                     <h4 class="fs-2 ">Reviews for this seller</h4>
                     <p>3 reviews</p>
                 </div>

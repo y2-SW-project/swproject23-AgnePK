@@ -117,9 +117,9 @@
                 <p class="fs-3 mb-0">All Jewellery</p>
             </div>
             <div class="col-3 d-flex"> 
-                <label class="input-group-text" for="inputGroupSelect01">Sort By</label>
+                {{-- <label class="input-group-text" for="inputGroupSelect01">Sort By</label> --}}
                 <select class="form-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
+                    <option selected>Sort By</option>
                     <option value="1">Price: High to Low</option>
                     <option value="2">Price: Low to High</option>
                     <option value="3">Popular</option>
