@@ -16,7 +16,7 @@
         
     <div class="col-12">
         <div class="dropdown" >
-            <a class="btn btn-outline-dark" href="{{ route('shopping.cart') }}">
+            <a class="btn btn-outline-dark" href="{{ route('user.shopping.cart') }}">
                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge text-bg-danger">{{ count((array) session('jewellery.cart')) }}</span>
             </a>
         </div>

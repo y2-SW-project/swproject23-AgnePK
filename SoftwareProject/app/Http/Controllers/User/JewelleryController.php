@@ -15,8 +15,8 @@ class JewelleryController extends Controller
      */
     public function index()
     {
-        // $user = Auth::user();
-        // $user->authorizeRoles('user');
+        $user = Auth::user();
+        $user->authorizeRoles('user');
         // $jewellery = Jewellery::where('user_id', Auth::id())->get();
         $jewellery = Jewellery::latest('updated_at')->paginate(12);
         // dd($jewellery);
@@ -35,11 +35,11 @@ class JewelleryController extends Controller
     {
         // $user = Auth::user();
         // $user->authorizeRoles('user');
-        // $jewellery = Jewellery::where('user_id', '=', $user->id)->get();
+        // // $jewellery = Jewellery::where('user_id', '=', $user->id)->get();
 
-        $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
-        $materials = ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze'];
-        return view('user.jewellery.create')->with('categories', $categories)->with('materials', $materials);
+        // $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
+        // $materials = ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze'];
+        // return view('user.jewellery.create')->with('categories', $categories)->with('materials', $materials);
     }
 
     /**
@@ -47,33 +47,33 @@ class JewelleryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'img' => 'file|image',
-            'name' => 'required|max:255',
-            'price' => 'required',
-            'description' => 'required|max:255',
-            //bottom 2 are enum
-            'category' => 'required',
-            'material' => 'required',
-            //order id?
-        ]);
-        $img = $request->file('img');
-        $extention = $img->getClientOriginalExtension();
-        $filename = $request->input('name') . '.' . $extention;
-        $path = $img->storeAs('public/images', $filename);
+        // $request->validate([
+        //     'img' => 'file|image',
+        //     'name' => 'required|max:255',
+        //     'price' => 'required',
+        //     'description' => 'required|max:255',
+        //     //bottom 2 are enum
+        //     'category' => 'required',
+        //     'material' => 'required',
+        //     //order id?
+        // ]);
+        // $img = $request->file('img');
+        // $extention = $img->getClientOriginalExtension();
+        // $filename = $request->input('name') . '.' . $extention;
+        // $path = $img->storeAs('public/images', $filename);
 
 
 
-        Jewellery::create([
-            'img' => $filename,
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description,
-            'category' => $request->category,
-            'material' => $request->material,
-        ]);
+        // Jewellery::create([
+        //     'img' => $filename,
+        //     'name' => $request->name,
+        //     'price' => $request->price,
+        //     'description' => $request->description,
+        //     'category' => $request->category,
+        //     'material' => $request->material,
+        // ]);
 
-        return to_route('user.jewellery.index');
+        // return to_route('user.jewellery.index');
     }
 
     /**
@@ -97,9 +97,9 @@ class JewelleryController extends Controller
         // $user->authorizeRoles('user');
 
         // $user = Jewellery::where('user_id', Auth::id())->get();
-        $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
-        $materials = ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze'];
-        return view('user.jewellery.edit')->with('jewellery', $jewellery)->with('categories', $categories)->with('materials', $materials);
+        // $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
+        // $materials = ['sterling silver', 'gold', 'rosegold', 'white gold', 'bronze'];
+        // return view('user.jewellery.edit')->with('jewellery', $jewellery)->with('categories', $categories)->with('materials', $materials);
     }
 
     /**
@@ -107,31 +107,31 @@ class JewelleryController extends Controller
      */
     public function update(Request $request, Jewellery $jewellery)
     {
-        $request->validate([
-            'img' => 'file|image',
-            'name' => 'required|max:255',
-            'price' => 'required',
-            'description' => 'required|max:255',
-            //bottom 2 are enum
-            'category' => 'required',
-            'material' => 'required',
-            //order id?
-        ]);
-        $img = $request->file('img');
-        $extention = $img->getClientOriginalExtension();
-        $filename = $request->input('name') . '.' . $extention;
-        $path = $img->storeAs('public/images', $filename);
+        // $request->validate([
+        //     'img' => 'file|image',
+        //     'name' => 'required|max:255',
+        //     'price' => 'required',
+        //     'description' => 'required|max:255',
+        //     //bottom 2 are enum
+        //     'category' => 'required',
+        //     'material' => 'required',
+        //     //order id?
+        // ]);
+        // $img = $request->file('img');
+        // $extention = $img->getClientOriginalExtension();
+        // $filename = $request->input('name') . '.' . $extention;
+        // $path = $img->storeAs('public/images', $filename);
 
-        $jewellery->update([
-            'img' => $filename,
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description,
-            'category' => $request->category,
-            'material' => $request->material,
-        ]);
+        // $jewellery->update([
+        //     'img' => $filename,
+        //     'name' => $request->name,
+        //     'price' => $request->price,
+        //     'description' => $request->description,
+        //     'category' => $request->category,
+        //     'material' => $request->material,
+        // ]);
 
-        return to_route('user.jewellery.show', $jewellery);
+        // return to_route('user.jewellery.show', $jewellery);
     }
 
     /**
@@ -139,9 +139,9 @@ class JewelleryController extends Controller
      */
     public function destroy(Jewellery $jewellery)
     {
-        $jewellery->delete();
+        // $jewellery->delete();
 
-        return to_route('user.jewellery.index', $jewellery);
+        // return to_route('user.jewellery.index', $jewellery);
     }
     /**
      * Adding jewellery to cart.

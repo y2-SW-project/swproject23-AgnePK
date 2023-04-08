@@ -26,8 +26,8 @@ class JewelleryController extends Controller
      */
     public function create()
     {
-        // $user = Auth::user();
-        // $user->authorizeRoles('admin');
+        $user = Auth::user();
+        $user->authorizeRoles('admin');
         // $jewellery = Jewellery::where('user_id', '=', $user->id)->get();
 
         $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
@@ -74,6 +74,8 @@ class JewelleryController extends Controller
      */
     public function show(Jewellery $jewellery)
     {
+        $user = Auth::user();
+        $user->authorizeRoles('admin');
         // $order = Jewellery::with('orders')->get();
         // dd($jewellery);
         $allJewellery = Jewellery::latest('updated_at')->paginate(5);

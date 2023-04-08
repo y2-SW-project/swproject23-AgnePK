@@ -1,7 +1,13 @@
+
+
 //variables
 $mainGreen: #c5d5cb;
 $darkGreen: #9fa8a3;
+$danger:#c84c30;
+$warning:#c87730;
+$success:#549c46;
 $beige: #e3e0cf;
+$light: #f5f5ef;
 $bgColour: #fcfcfa;
 
 nav{
@@ -27,9 +33,9 @@ p{
 // Body
 $body-bg: $bgColour;
 
-.similarItems{
-    background-color: $beige;
-}
+// .similarItems{
+//     // background-color: white;
+// }
 //footer
 footer{
     background-color:$darkGreen ;
@@ -42,3 +48,29 @@ footer{
 $font-family-sans-serif: 'Cardo';
 $font-size-base: 0.9rem;
 $line-height-base: 1.3;
+
+
+//colours
+
+$theme-colors: (
+  "primary":    $mainGreen,
+  "secondary":  $beige,
+  "success":    $success,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $darkGreen
+);
+
+
+$focus-ring-width:      .25rem;
+$focus-ring-opacity:    .55;
+$focus-ring-color:      rgba($darkGreen, $focus-ring-opacity);
+$focus-ring-blur:       0;
+$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
+
+$input-btn-focus-width:         $focus-ring-width;
+$input-btn-focus-color-opacity: $focus-ring-opacity;
+$input-btn-focus-color:         $focus-ring-color;
+$input-btn-focus-blur:          $focus-ring-blur;
+$input-btn-focus-box-shadow:    $focus-ring-box-shadow;

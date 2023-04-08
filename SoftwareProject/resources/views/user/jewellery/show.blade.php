@@ -1,18 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Jewellery') }}
-        </h2>
-    </x-slot>
-
-    <div class="col-5 ps-5">
+    <div class="col-5 ps-5 my-5">
         <img class="border border-grey shadow-lg" src="{{ asset('storage/images/' . $jewellery->img) }}" width="450">
     </div>
 
     <div class="col-7 bg-transparent">
-        <div class="pt-3">
+        <div class="mt-5 pt-2">
             <h2 class="fs-1">
                 {{ $jewellery->name }}
             </h2>
@@ -20,8 +14,8 @@
 
         </div>
 
-        <div class="fs-5 ml-6">
-            <p class="mt-3 fs-3 text-secondary">€{{ $jewellery->price }}</p>
+        <div class="fs-5">
+            <p class="mt-3 fs-3 text-dark">€{{ $jewellery->price }}</p>
             <p class="btn-holder py-4"><a
                     href="{{ route('user.addjewellery.to.cart', $jewellery->id) }}"class="btn btn-dark rounded-0 px-5 fs-3">Add
                     to cart</a> </p>
@@ -32,22 +26,8 @@
 
     </div>
 
-    <div class="col-12 d-flex mt-4">
-        {{-- The button below takes you to the edit page.  --}}
-        <p class="btn-holder ms-auto pe-3"><a href="{{ route('user.jewellery.edit', $jewellery) }}"
-                class="btn btn-secondary">Edit jewellery</a></p>
-        {{-- It goes to the jewelleryController and calls all the functions. --}}
-        <form action="{{ route('user.jewellery.destroy', $jewellery) }}" method="post">
-            @method('delete')
-            @csrf
-            <button type="submit" class="btn btn-danger"
-                onclick="return confirm('Are you sure you wish to delete this jewellery?')">Delete
-                jewellery
-            </button>
-    </div>
-
-    <div class="row pt-5 px-0">
-        <div class="similarItems col-12 pt-3">
+    <div class="row pt-3 px-0">
+        <div class="similarItems col-12 pt-3 mt-5">
             <p class="lead ps-4 fs-3 fw-bold mb-0">Similar items you might like</p>
             <div class="col d-flex ">
                 @foreach ($allJewellery as $piece)
@@ -56,11 +36,11 @@
                                 src="{{ asset('storage/images/' . $piece->img) }}"
                                 class="card-img-top rounded-0 border border-dark" alt="..."></a>
                         <div class="card-body px-0 pt-1">
-                            <h3 class="fs-4">
+                            <h3 class="fs-4 text-black">
                                 <a class="link-dark"
                                     href="{{ route('user.jewellery.show', $piece) }}">{{ $piece->name }}</a>
                             </h3>
-                            <p class="card-text fs-5 mt-2">€{{ $piece->price }}</p>
+                            <p class="card-text text-black fs-5 mt-2">€{{ $piece->price }}</p>
                         </div>
                     </div>
                 @endforeach

@@ -28,7 +28,7 @@ Route::get('/', function () {
 // Route::get('/', [HomeJewelleryController::class, 'index'])->name('welcome');
 
 Route::resource('/admin/jewellery', AdminJewelleryController::class)->middleware(['auth'])->names('admin.jewellery');
-Route::resource('/user/jewellery', UserJewelleryController::class)->middleware(['auth'])->names('user.jewellery');
+Route::resource('/user/jewellery', UserJewelleryController::class)->middleware(['auth'])->names('user.jewellery')->only(['index', 'show', 'cart','addJewellerytoCart', 'updateCart', 'deleteProduct']);
 
 Route::resource('/admin/orders', AdminOrderController::class)->middleware(['auth'])->names('admin.orders');
 Route::resource('/user/orders', UserOrderController::class)->middleware(['auth'])->names('user.orders');
@@ -43,16 +43,16 @@ Route::middleware('auth')->group(function () {
 //admin shopping cart
 Route::get('/admin/shopping-cart', [AdminJewelleryController::class, 'jewelleryCart'])->name('admin.shopping.cart');
 Route::get('/admin/jewellery/{id}/add', [AdminJewelleryController::class, 'addJewellerytoCart'])->name('admin.addjewellery.to.cart');
-Route::patch('/admin/update-shopping-cart', [AdminJewelleryController::class, 'updateCart'])->name('admin.update.sopping.cart');
+Route::patch('/admin/update-shopping-cart', [AdminJewelleryController::class, 'updateCart'])->name('admin.update.shopping.cart');
 Route::delete('/admin/delete-cart-product', [AdminJewelleryController::class, 'deleteProduct'])->name('admin.delete.cart.product');
 // //shopping cart
 Route::get('/user/shopping-cart', [UserJewelleryController::class, 'jewelleryCart'])->name('user.shopping.cart');
 Route::get('/user/jewellery/{id}/add', [UserJewelleryController::class, 'addJewellerytoCart'])->name('user.addjewellery.to.cart');
-Route::patch('/user/update-shopping-cart', [UserJewelleryController::class, 'updateCart'])->name('user.update.sopping.cart');
+Route::patch('/user/update-shopping-cart', [UserJewelleryController::class, 'updateCart'])->name('user.update.shopping.cart');
 Route::delete('/user/delete-cart-product', [UserJewelleryController::class, 'deleteProduct'])->name('user.delete.cart.product');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Auth::routes();
 

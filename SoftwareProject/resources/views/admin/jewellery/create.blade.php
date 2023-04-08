@@ -39,32 +39,30 @@
                     <x-file-input type="file" name="img" placeholder="image" class="w-full mt-6" field="img">
                     </x-file-input>
                 </div>
-                <div class="col">
-                    <p class="mt-6">Select Category:</p>
-                    <select class="form-select" name="category" aria-label="Default select example" multiple>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category }}" {{ old('category') == $category ? 'selected' : '' }}>
-                                {{ $category }}</option>
-                        @endforeach
-                    </select>
+                <div class="col fs-5">
+                    <p class="mt-6 fs-4">Select Category:</p>
+                    @foreach ($categories as $category)
+                        <input type="radio", value="{{ $category }}"
+                            {{ old('category') == $category ? 'selected' : '' }} name="category">
+                        {{ $category }} <br>
+                    @endforeach
                     @error('category')
-                        <div class="text-danger text-xs">{{ $message }}</div>
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="col">
-                    <p class="mt-6">Select Material:</p>
-                    <select class="form-select" name="material" aria-label="Default select example" multiple>
-                        @foreach ($materials as $material)
-                            <option value="{{ $material }}" {{ old('material') == $material ? 'selected' : '' }}>
-                                {{ $material }}</option>
-                        @endforeach
-                    </select>
+                <div class="col fs-5">
+                    <p class="mt-6 fs-4">Select Material:</p>
+                    @foreach ($materials as $material)
+                        <input type="radio", value="{{ $material }}"
+                            {{ old('material') == $material ? 'selected' : '' }} name="material">
+                        {{ $material }} <br>
+                    @endforeach
                     @error('material')
-                        <div class="text-danger ">{{ $message }}</div>
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-12">
-                    <x-primary-button class="">Save Jewellery</x-primary-button>
+                    <x-primary-button>Save and Upload</x-primary-button>
                 </div>
             </div>
         </div>

@@ -20,11 +20,13 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg shadow-sm">
+        <nav class="navbar bg-light navbar-expand-lg shadow-sm sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                    <a class="" href="{{ url('/home') }}">
+                        <img src="{{ asset('storage/images/LOGO.png') }}" class="rounded-2 me-3" style="width:100px;" alt="..." />
+                    </a>
+
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -33,7 +35,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav">
                         <li>
                             <form class="d-flex " role="search">
                                 <input class="form-control me-2 text-center" type="search" placeholder="Search"
@@ -49,17 +51,19 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item me-2">
-                            <a href="{{ route('user.jewellery.create') }}" class="btn btn-light"><i class="bi bi-upload"></i></a>
+                            <a href="{{ route('admin.jewellery.create') }}" class="btn btn-light"><i
+                                    class="bi bi-upload"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
+                            <a class="nav-link" href="{{ route('user.shopping.cart') }}"><i
+                                    class="bi bi-cart2"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders') }}">Orders</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('/saved') }}">Saved</a>
-                        </li>
+                        </li> --}}
 
                         <!-- Authentication Links -->
                         @guest
@@ -99,7 +103,7 @@
             </div>
         </nav>
 
-        <main class="pb-4 pt-2">
+        <main class="pb-4">
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     @yield('content')
@@ -146,8 +150,8 @@
                                         <li><a href="#">New York</a></li>
                                 </div>
                                 <div class="col-lg-6 ">
-                                    <img src="{{ asset('storage/images/LOGO.png') }}" class="img-fluid w-100 rounded-5"
-                                        alt="..." />
+                                    <img src="{{ asset('storage/images/LOGO.png') }}"
+                                        class="img-fluid w-100 rounded-5" alt="..." />
                                 </div>
                                 </ul>
                             </div>

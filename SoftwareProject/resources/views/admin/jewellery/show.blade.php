@@ -7,7 +7,7 @@
         </h2>
     </x-slot>
 
-    <div class="col-5 ps-5">
+    <div class="col-5 ps-5 mt-3">
         <img class="border border-grey shadow-lg" src="{{ asset('storage/images/' . $jewellery->img) }}" width="450">
     </div>
 
@@ -18,11 +18,10 @@
                 {{ $jewellery->name }}
             </h2>
             <hr>
-
         </div>
 
         <div class="fs-5 ml-6">
-            <p class="mt-3 fs-3 text-secondary">€{{ $jewellery->price }}</p>
+            <p class="mt-3 fs-3 text-dark">€{{ $jewellery->price }}</p>
             <p class="btn-holder py-4"><a
                     href="{{ route('admin.addjewellery.to.cart', $jewellery->id) }}"class="btn btn-dark rounded-0 px-5 fs-3">Add
                     to cart</a> </p>
@@ -47,8 +46,8 @@
             </button>
     </div>
 
-    <div class="row pt-5 px-0">
-        <div class="similarItems col-12 pt-3">
+    <div class="row pt-3 px-0">
+        <div class="similarItems col-12 pt-3  mt-5">
             <p class="lead ps-4 fs-3 fw-bold mb-0">Similar items you might like</p>
             <div class="col d-flex ">
                 @foreach ($allJewellery as $piece)

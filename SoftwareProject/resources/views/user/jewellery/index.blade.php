@@ -22,9 +22,9 @@
                         <p>For a special someone, for youself, for whichever occasion it may be</p>
                     </div>
                 </div>
-                <div class="carousel-item ">
+                <div class="carousel-item">
                     <img src="{{ asset('storage/images/hero3.jpg') }}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block text-dark">
+                    <div class="carousel-caption d-none d-md-block text-black">
                         <h5>Upload and Sell</h5>
                         <p>If you dont want it anymore, someone else will be happy to have it</p>
                     </div>
@@ -130,15 +130,57 @@
     </div>
     @forelse ($jewellery as $piece)
         <div class="card rounded-0 border-0 bg-transparent" style="width: 17rem";>
-            <img src="{{ asset('storage/images/' . $piece->img) }}" class="card-img-top rounded-0 border border-dark"
-                alt="...">
+            <a href="{{ route('user.jewellery.show', $piece) }}"><img src="{{ asset('storage/images/' . $piece->img) }}" class="card-img-top rounded-0 border border-dark" alt="..."></a>
             <div class="card-body px-0 pt-1">
                 <h2 class="fs-4">
-                    <a class="link-dark" href="{{ route('user.jewellery.show', $piece) }}">{{ $piece->name }}</a>
+                    <a class=" text-dark" href="{{ route('user.jewellery.show', $piece) }}">{{ $piece->name }}</a>
                 </h2>
-                <p class="card-text fs-5 mt-2">€{{ $piece->price }}</p>
-                <a href="{{ route('user.addjewellery.to.cart', $piece->id) }}" class="text-dark btn btn-light">Add to
-                    cart</a>
+                <p class="card-text fs-5 mt-2 ">€{{ $piece->price }}</p>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ route('user.addjewellery.to.cart', $piece->id) }}"
+                        class="text-black btn btn-primary rounded-0">Add to
+                        cart</a>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="bi bi-zoom-in"></i></button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Quick View:  {{ $piece->name }} </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-bodycard rounded-0 border-0 bg-transparent d-flex justify-content-evenly">
+                                    <a href="{{ route('user.jewellery.show', $piece) }}"><img
+                                            src="{{ asset('storage/images/' . $piece->img) }}"
+                                            class="card-img-top rounded-0 border border-dark" alt="...">
+                                        </a>
+                                    <div class="bg-transparent">
+                                        <div class="pt-3">
+                                            <h2 class="fs-1">
+                                                {{ $piece->name }}
+                                            </h2>
+                                            <hr>
+                                        </div>
+
+                                        <div class="fs-5 ml-6">
+                                            <p class="mt-3 fs-3 text-dark">€{{ $piece->price }}</p>
+                                            <p class="btn-holder py-4"><a
+                                                    href="{{ route('user.addjewellery.to.cart', $piece->id) }}"class="btn btn-dark rounded-0 px-5 fs-3">Add
+                                                    to cart</a> </p>
+                                            <p class="mt-3"><strong>Category:</strong> {{ $piece->category }}</p>
+                                            <p class="mt-3"><strong>Material:</strong> {{ $piece->material }}</p>
+                                            <p class="mt-4 fs-4">{{ $piece->description }}</p>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     @empty
