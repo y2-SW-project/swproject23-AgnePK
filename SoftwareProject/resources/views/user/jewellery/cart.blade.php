@@ -1,13 +1,13 @@
 @extends('user.jewellery.shop')
 
 @section('content')
-    <table id="cart" class="table table-bordered">
+    <table id="cart" class="table table-bordered m-5">
         <thead>
             <tr>
                 <th>Product</th>
                 <th>Price</th>
-                <th>Total</th>
-                <th></th>
+                {{-- <th>Total</th> --}}
+                {{-- <th></th> --}}
             </tr>
         </thead>
         <tbody>
@@ -18,7 +18,7 @@
                         <td data-th="Product">
                             <div class="row">
                                 <div class="col-sm-3 hidden-xs"><img src="{{ asset('storage/images/' . $details['img']) }}"
-                                        class="card-img-top" />
+                                        class=" w-50" />
                                 </div>
                                 <div class="col-sm-9">
                                     <h4 class="nomargin">{{ $details['name'] }}</h4>
@@ -28,9 +28,9 @@
                         <td data-th="Price">${{ $details['price'] }}</td>
 
                         {{-- <td data-th="Subtotal" class="text-center"></td> --}}
-                        <td class="actions">
+                        {{-- <td class="actions">
                             <a class="btn btn-outline-danger btn-sm delete-product"><i class="fa fa-trash-o"></i>Delete</a>
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
             @endif
@@ -45,19 +45,67 @@
                         data-bs-target="#staticBackdrop">Checkout</button>
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                    <p class="modal-title fs-5" id="staticBackdropLabel"><strong>Card informarion</strong> > Billing address > Purchase</p>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <div class="container-lg py-1">
+                                        <div class="row d-flex justify-content-between">
+                                            <div class="col">
+                                                <h1 class="h4 py-3">Card & Email</h1>
+                                                <div class="col-lg-12 input">
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="col-lg-5">
+                                                            <p>Name</p>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-5">
+                                                            <p>surname</p>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <p>e-mail</p>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <p>card number</p>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="col-lg-5">
+                                                            <p>EXPIRATION</p>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <p>cvc</p>
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Understood</button>
+                                    <button type="button" class="btn btn-primary">Continue Purchase</button>
                                 </div>
                             </div>
                         </div>
