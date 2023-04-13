@@ -6,6 +6,9 @@
             {{ __('Jewellery') }}
         </h2>
     </x-slot>
+    <div class="width-100 bg-black d-flex justify-content-center">
+        <p class="text-white pt-3">Become a member to sell YOUR own jewellery!</p>
+    </div>
     <div class="px-0">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
@@ -128,15 +131,17 @@
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Quick View:  {{ $piece->name }} </h1>
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Quick View: {{ $piece->name }}
+                                    </h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="modal-bodycard rounded-0 border-0 bg-transparent d-flex justify-content-evenly">
+                                <div
+                                    class="modal-bodycard rounded-0 border-0 bg-transparent d-flex justify-content-evenly">
                                     <a href="{{ route('admin.jewellery.show', $piece) }}" class="pt-3"><img
                                             src="{{ asset('storage/images/' . $piece->img) }}"
                                             class="card-img-top rounded-0 border border-dark" alt="...">
-                                        </a>
+                                    </a>
                                     <div class="bg-transparent">
                                         <div class="pt-3">
                                             <h2 class="fs-1">

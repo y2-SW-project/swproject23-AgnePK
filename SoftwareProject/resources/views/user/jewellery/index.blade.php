@@ -6,6 +6,9 @@
             {{ __('Jewellery') }}
         </h2>
     </x-slot>
+    <div class="width-100 bg-black d-flex justify-content-center">
+        <p class="text-white pt-3">Become a member to sell YOUR own jewellery!</p>
+    </div>
     <div class="px-0">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
@@ -45,36 +48,17 @@
     <div class="container my-5">
         <div class="row d-flex justify-content-center">
             <div class="col-8 border-top border-bottom d-flex justify-content-evenly">
-                <div class="dropdown form-check">
+                <div class="dropdown">
                     <button class="btn border-0 text-uppercase fs-5" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <p class="mb-0">Material</p>
+                        <p class="mb-0">material</p>
                     </button>
                     <ul class="dropdown-menu bg-light border-0">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Gold
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Sterling Silver
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Rose Gold
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Bronze
-                            </label>
-                        </div>
+                        <li><a class="dropdown-item" href="#">Gold</a></li>
+                        <li><a class="dropdown-item" href="#">White Gold</a></li>
+                        <li><a class="dropdown-item" href="#">Sterling Silver</a></li>
+                        <li><a class="dropdown-item" href="#">Rose Gold</a></li>
+                        <li><a class="dropdown-item" href="#">Bronze</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">

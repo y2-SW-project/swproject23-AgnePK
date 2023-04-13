@@ -20,11 +20,13 @@
 
 <body>
     <div id="app">
-        <nav class="navbar bg-light navbar-expand-lg shadow-sm sticky-top">
+        <nav class="navbar bg-light navbar-expand-lg shadow-sm sticky-top align-items-center">
             <div class="container">
-                    <a class="" href="{{ url('/home') }}">
-                        <img src="{{ asset('storage/images/LOGO.png') }}" class="rounded-2 me-3" style="width:100px;" alt="..." />
-                    </a>
+                <a class="text-decoration-none text-black" href="{{ url('/home') }}">
+                    <h1 class="fs-5 me-5 pt-2">Trinket Boutique</h1>
+                </a>
+                {{--    <img src="{{ asset('storage/images/LOGO.png') }}" class="rounded-2 me-3" style="width:100px;"
+                    alt="..." /> --}}
 
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -55,8 +57,7 @@
                                     class="bi bi-upload"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.shopping.cart') }}"><i
-                                    class="bi bi-cart2"></i></a>
+                            <a class="nav-link" href="{{ route('user.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders') }}">Orders</a>

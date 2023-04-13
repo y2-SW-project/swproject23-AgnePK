@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>Laravel Shopping Cart Example</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-</head>
-<body>
+</head> --}}
+{{-- <body> --}}
   
-<div class="container mt-5">
+{{-- <div class="container mt-5">
     <h2 class="mb-3">Laravel Add To Shopping Cart Example</h2>
         
     <div class="col-12">
@@ -21,9 +21,9 @@
             </a>
         </div>
     </div>
-</div>
+</div> --}}
 
-<div class="container mt-4">
+<div class="container ">
     @if(session('success'))
         <div class="alert alert-success">
           {{ session('success') }}
@@ -33,7 +33,7 @@
 </div>
   
 @yield('scripts')
-</body>
+{{-- </body> --}}
 
-</html>
+{{-- </html> --}}
 @endsection
