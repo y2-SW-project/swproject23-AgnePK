@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-5 ps-5 my-5">
-        <img class="border border-grey shadow-lg" src="{{ asset('storage/images/' . $jewellery->img) }}" width="450">
+        <img class="border border-grey shadow-sm" src="{{ asset('storage/images/' . $jewellery->img) }}" width="450">
     </div>
 
     <div class="col-7 bg-transparent">

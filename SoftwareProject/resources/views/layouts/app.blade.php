@@ -60,7 +60,7 @@
                             <a class="nav-link" href="{{ route('user.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/orders') }}">Orders</a>
+                            <a class="nav-link" href="{{ url('/admin/orders') }}">Previous Orders</a>
                         </li>
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('/saved') }}">Saved</a>

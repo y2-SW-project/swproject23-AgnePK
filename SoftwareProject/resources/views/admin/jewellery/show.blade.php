@@ -1,18 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Jewellery') }}
-        </h2>
-    </x-slot>
-
-    <div class="col-5 ps-5 mt-3">
-        <img class="border border-grey shadow-lg" src="{{ asset('storage/images/' . $jewellery->img) }}" width="450">
+    <div class="col-5 ps-5 my-5">
+        <img class="border border-grey shadow-sm" src="{{ asset('storage/images/' . $jewellery->img) }}" width="450">
     </div>
 
     {{-- In this div i just show all the info from my DB. --}}
-    <div class="col-7 bg-transparent">
+    <div class="col-7 bg-transparent my-5">
         <div class="pt-3">
             <h2 class="fs-1">
                 {{ $jewellery->name }}
