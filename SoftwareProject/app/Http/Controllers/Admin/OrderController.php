@@ -53,8 +53,10 @@ class OrderController extends Controller
         $user->authorizeRoles('admin');
 
         $user = Order::where('user_id', '=', $user->id)->get();
+
         // $jewellery = Order::where('jewellery_id', '=', $jewellery->id)->get();
-        return view('admin.orders.show')->with('order', $order)->with('user', $user);
+        $eachJewellery = Jewellery::with('orders')->get();
+        return view('admin.orders.show')->with('order', $order)->with('user', $user)->with('eachJewellery', $eachJewellery);
     }
 
     /**

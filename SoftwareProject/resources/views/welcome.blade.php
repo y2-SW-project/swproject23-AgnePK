@@ -3,6 +3,21 @@
 @section('content')
     <div class="container mx-5">
         <div class="row justify-content-center">
+            {{-- @foreach ($jewellery as $piece)
+            <div class="card rounded-0 border-0 bg-transparent" style="width: 17rem";>
+                <a href="{{ route('user.jewellery.show', $piece) }}"><img
+                        src="{{ asset('storage/images/' . $piece->img) }}"
+                        class="card-img-top rounded-0 border border-dark" alt="..."></a>
+                <div class="card-body px-0 pt-1">
+                    <h3 class="fs-4 text-black">
+                        <a class="link-dark"
+                            href="{{ route('user.jewellery.show', $piece) }}">{{ $piece->name }}</a>
+                    </h3>
+                    <p class="card-text text-black fs-5 mt-2">€{{ $piece->price }}</p>
+                </div>
+            </div>
+        @endforeach --}}
+
             <div>
                 <h1>Hello World</h1>
                 <h3>This is a laravel-bootstrap template</h3>

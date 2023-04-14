@@ -36,9 +36,12 @@ class HomeController extends Controller
             $home = 'user.jewellery.index';
         }
         return redirect()->route($home);
+
+        $jewellery = Jewellery::all();
+        return view('home', compact('jewellery'));
     }
-    public function show(Jewellery $jewellery)
-    {
-        return view('welcome')->with('jewellery', $jewellery);
-    }
+    // public function show(Jewellery $jewellery)
+    // {
+    //     return view('welcome')->with('jewellery', $jewellery);
+    // }
 }
