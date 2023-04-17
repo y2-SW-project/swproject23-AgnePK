@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Trinket Boutique</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=cardo:400,700|josefin-sans:300,300i" rel="stylesheet">
@@ -57,7 +57,7 @@
                                     class="bi bi-upload"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
+                            <a class="nav-link" href="{{ route('admin.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders') }}">Previous Orders</a>
