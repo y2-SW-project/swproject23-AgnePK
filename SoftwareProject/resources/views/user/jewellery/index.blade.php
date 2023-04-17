@@ -129,20 +129,22 @@
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
+                            <div class="modal-content p-3">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Quick View:  {{ $piece->name }} </h1>
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Quick View: {{ $piece->name }}
+                                    </h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="modal-bodycard rounded-0 border-0 bg-transparent d-flex justify-content-evenly">
-                                    <a href="{{ route('user.jewellery.show', $piece) }}"><img
+                                <div
+                                    class="modal-bodycard rounded-0 border-0 bg-transparent d-flex justify-content-evenly">
+                                    <a href="{{ route('admin.jewellery.show', $piece) }}" class="pt-3"><img
                                             src="{{ asset('storage/images/' . $piece->img) }}"
-                                            class="card-img-top rounded-0 border border-dark" alt="...">
-                                        </a>
-                                    <div class="bg-transparent">
+                                            class="rounded-0 border border-dark" alt="...">
+                                    </a>
+                                    <div class="bg-transparent ps-3">
                                         <div class="pt-3">
-                                            <h2 class="fs-1">
+                                            <h2 class="fs-3">
                                                 {{ $piece->name }}
                                             </h2>
                                             <hr>
@@ -151,14 +153,12 @@
                                         <div class="fs-5 ml-6">
                                             <p class="mt-3 fs-3 text-dark">€{{ $piece->price }}</p>
                                             <p class="btn-holder py-4"><a
-                                                    href="{{ route('user.addjewellery.to.cart', $piece->id) }}"class="btn btn-dark rounded-0 px-5 fs-3">Add
+                                                    href="{{ route('admin.addjewellery.to.cart', $piece->id) }}"class="btn btn-dark rounded-0 px-5 fs-3">Add
                                                     to cart</a> </p>
                                             <p class="mt-3"><strong>Category:</strong> {{ $piece->category }}</p>
                                             <p class="mt-3"><strong>Material:</strong> {{ $piece->material }}</p>
-                                            <p class="mt-4 fs-4">{{ $piece->description }}</p>
+                                            <p class="mt-4 fs-5">{{ $piece->description }}</p>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
