@@ -124,9 +124,9 @@
                     <a href="{{ route('admin.addjewellery.to.cart', $piece->id) }}"
                         class="text-black btn btn-primary rounded-0">Add to
                         cart</a>
-                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#QuickView">
                         <i class="bi bi-zoom-in"></i></button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="QuickView" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content p-3">
@@ -170,5 +170,5 @@
     @empty
         <p>You have no jewellery yet.</p>
     @endforelse
-    {{ $jewellery->links() }}
+    {{-- {{ $jewellery->links() }} --}}
 @endsection

@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-slot name="header">
-        <h2 class="fs-1">
-            {{ __('Jewellery') }}
-        </h2>
-    </x-slot>
+
     <div class="width-100 bg-black d-flex justify-content-center">
         <p class="text-white pt-3">Become a member to sell YOUR own jewellery!</p>
     </div>
@@ -100,7 +96,7 @@
             <div class="col ms-5">
                 <p class="fs-3 mb-0">All Jewellery</p>
             </div>
-            <div class="col-3 d-flex"> 
+            <div class="col-3 d-flex">
                 {{-- <label class="input-group-text" for="inputGroupSelect01">Sort By</label> --}}
                 <select class="form-select" id="inputGroupSelect01">
                     <option selected>Sort By</option>
@@ -114,7 +110,8 @@
     </div>
     @forelse ($jewellery as $piece)
         <div class="card rounded-0 border-0 bg-transparent" style="width: 17rem";>
-            <a href="{{ route('user.jewellery.show', $piece) }}"><img src="{{ asset('storage/images/' . $piece->img) }}" class="card-img-top rounded-0 border border-dark" alt="..."></a>
+            <a href="{{ route('user.jewellery.show', $piece) }}"><img src="{{ asset('storage/images/' . $piece->img) }}"
+                    class="card-img-top rounded-0 border border-dark" alt="..."></a>
             <div class="card-body px-0 pt-1">
                 <h2 class="fs-4">
                     <a class=" text-dark" href="{{ route('user.jewellery.show', $piece) }}">{{ $piece->name }}</a>
@@ -124,20 +121,20 @@
                     <a href="{{ route('user.addjewellery.to.cart', $piece->id) }}"
                         class="text-black btn btn-primary rounded-0">Add to
                         cart</a>
-                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#QuickView">
                         <i class="bi bi-zoom-in"></i></button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade " id="QuickView" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content p-3">
-                                <div class="modal-header">
+                            <div class="modal-content">
+                                <div class="modal-header bg-light">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Quick View: {{ $piece->name }}
                                     </h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div
-                                    class="modal-bodycard rounded-0 border-0 bg-transparent d-flex justify-content-evenly">
+                                    class="modal-bodycard rounded-0 border-0 bg-transparent px-3 d-flex justify-content-evenly">
                                     <a href="{{ route('admin.jewellery.show', $piece) }}" class="pt-3"><img
                                             src="{{ asset('storage/images/' . $piece->img) }}"
                                             class="rounded-0 border border-dark" alt="...">
@@ -170,5 +167,5 @@
     @empty
         <p>You have no jewellery yet.</p>
     @endforelse
-    {{ $jewellery->links() }}
+    {{-- {{ $jewellery->links() }} --}}
 @endsection

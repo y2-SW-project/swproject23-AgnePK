@@ -4,7 +4,7 @@
     <div class="col-10 mx-auto">
         <p class="fs-2 mt-2">Your current shopping cart</p>
         <table id="cart" class="table table-bordered mt-3">
-            <thead>
+            <thead class="bg-light">
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
@@ -32,8 +32,8 @@
             </tbody>
     </div>
     <tfoot>
-        <tr>
-            <td colspan="5" class="text-right">
+        <tr class=" border-0 ">
+            <td colspan="5" class="text-right border-0 ">
                 <a href="{{ url('/admin/jewellery') }}" class="btn btn-secondary"><i class="fa fa-angle-left"></i>
                     Continue
                     Shopping</a>

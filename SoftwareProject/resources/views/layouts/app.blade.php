@@ -51,20 +51,17 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item me-2">
                             <a href="{{ route('admin.jewellery.create') }}" class="btn btn-light"><i
                                     class="bi bi-upload"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
+                            <a class="nav-link btn btn-light" href="{{ route('admin.shopping.cart') }}"><i class="bi bi-cart2"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/orders') }}">Previous Orders</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/saved') }}">Saved</a>
-                        </li> --}}
 
                         <!-- Authentication Links -->
                         @guest

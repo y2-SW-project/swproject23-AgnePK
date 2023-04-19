@@ -4,7 +4,7 @@
     <div class="col-10 mx-auto">
         <p class="fs-2 mt-2">Your current shopping cart</p>
         <table id="cart" class="table table-bordered mt-3">
-            <thead>
+            <thead class="bg-light">
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
@@ -16,9 +16,10 @@
                     @foreach (session('cart') as $id => $details)
                         <tr rowId="{{ $id }}">
                             <td data-th="Product">
-                                <div class="row">
-                                    <div class="col-sm-3 hidden-xs"><img
-                                            src="{{ asset('storage/images/' . $details['img']) }}" class=" w-75" />
+                                <div class="row py-3">
+                                    <div class="col-sm-3 hidden-xs text-center">
+                                        <img src="{{ asset('storage/images/' . $details['img']) }}"
+                                            class=" w-75 border border-1" />
                                     </div>
                                     <div class="col-sm-9">
                                         <h4 class="nomargin">{{ $details['name'] }}</h4>
@@ -32,8 +33,8 @@
             </tbody>
     </div>
     <tfoot>
-        <tr>
-            <td colspan="5" class="text-right">
+        <tr class=" border-0 ">
+            <td colspan="5" class="text-right border-0 ">
                 <a href="{{ url('/user/jewellery') }}" class="btn btn-secondary"><i class="fa fa-angle-left"></i>
                     Continue
                     Shopping</a>
