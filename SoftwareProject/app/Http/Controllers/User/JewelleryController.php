@@ -18,7 +18,7 @@ class JewelleryController extends Controller
         $user = Auth::user();
         $user->authorizeRoles('user');
         // $jewellery = Jewellery::where('user_id', Auth::id())->get();
-        $jewellery = Jewellery::latest('updated_at')->paginate(12);
+        $jewellery = Jewellery::latest('updated_at')->get();
         // dd($jewellery);
         // $categories = Jewellery::where('category', '=', $jewellery->category)->get();
         // $categories = ['earrings', 'ring', 'necklace', 'bracelets'];
