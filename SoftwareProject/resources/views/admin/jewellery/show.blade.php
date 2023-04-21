@@ -91,7 +91,7 @@
                 </div>
                 <div class="text-center px-4 mb-2" style="width: 25rem;">
                     <img src="https://picsum.photos/70?random=3" class="rounded-circle" alt="Profile image"><br>
-                    <span>Joseph O'Donelly</span>
+                    <span>Stephanie Murry</span>
                     <div class="my-2">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
@@ -102,9 +102,10 @@
                     <p class="fst-italic text-wrap">" I had the greatest experience with a custom ring design here! If you
                         need custom work done, this is your spot!!! 100% recommend!"</p>
                 </div>
+
                 <div class="text-center px-4" style="width: 25rem;">
                     <img src="https://picsum.photos/70?random=2" class="rounded-circle" alt="Profile image"><br>
-                    <span>Joseph O'Donelly</span>
+                    <span>Becky Jackson</span>
                     <div class="my-2">
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>

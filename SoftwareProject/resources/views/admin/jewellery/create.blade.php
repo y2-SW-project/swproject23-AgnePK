@@ -31,7 +31,7 @@
 
                     <div class="col-3">
                         <p class="mt-6">Upload your image:</p>
-                        
+
                         <x-file-input type="file" name="img" placeholder="image" class="w-full mt-6" field="img">
                         </x-file-input>
                     </div>

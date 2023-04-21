@@ -3,9 +3,9 @@
 @section('content')
     <div class="col-10 mx-auto">
         <p class="fs-2 mt-2">Your current shopping cart</p>
-        <table id="cart" class="table table-bordered mt-3">
+        <table id="cart" class="table table-bordered">
             <thead class="bg-light">
-                <tr>
+                <tr class="shadow-sm">
                     <th>Product</th>
                     <th>Price</th>
                 </tr>
